@@ -31,8 +31,9 @@ Before we continue, let's establish some quick terminology:
 Aside of the obvious type system stuff, I think there are a few core differences
 between Rust and JS:
 
-1. In Rust *everything* is object-oriented. Imports are always done through
-  namespaces, and namespaces kind of behave like structs.
+### Object-Oriented everything
+In Rust *everything* is object-oriented. Imports are always done through
+namespaces, and namespaces kind of behave like structs.
 
 ```rust
 // println comes from the "std" namespace -- print something to the screen.
@@ -43,8 +44,9 @@ std::println!("hello world");
 let hashmap = std::collections::HashMap::new();
 ```
 
-2. Structs don't have "constructor" methods the way JS do; instead you define a
-   method that returns `Self` (which is a shorthand for the name of the struct).
+### Classes & Structs
+Structs don't have "constructor" methods the way JS do; instead you define a
+method that returns `Self` (which is a shorthand for the name of the struct).
 
 ```js
 class Rectangle {
@@ -69,10 +71,45 @@ impl Rectangle {
 }
 ```
 
-3. Everything is an expression. Which is to say: blocks suddenly have a lot more
-   meaning, and you can do some fun substitutions.
+### Expressions!
+Everything is an expression. Which is to say: blocks suddenly have a lot more
+meaning, and you can do some fun substitutions.
 
-4. There are 3 kinds of self: `self`, `&self`, `&mut self`.
+These are all equivalent:
+```rust
+let y = 1 + 1;
+let x = y * y;
+if x == 4 {
+    println!("hello world");
+}
+```
+
+```rust
+// If we omit the `;` from a statement, it becomes the return value of the
+// block it's in.
+let x = {
+    let y = 1 + 1;
+    y * y
+};
+if x == 4 {
+    println!("hello world");
+}
+```
+
+
+```rust
+// Expressions means that you can inline almost anything. Don't actually do this
+// please.
+if {
+    let y = 1 + 1;
+    y * y
+} == 4 {
+    println!("hello world");
+}
+```
+
+### Know your `self`
+There are 3 kinds of self: `self`, `&self`, `&mut self`.
 
 ```rust
 pub struct Rectangle {
@@ -124,9 +161,9 @@ guarantees at runtime rather than compile-time. Less efficient, but same rules!
 
 That's it! Everything else is basically an application of these rules.
 
-4. Instead of using `opts` or default values, most things use builders instead.
-   Kind of the way [`superagent`](https://github.com/visionmedia/superagent)
-   works:
+### Options
+Instead of using `opts` or default values, most things use builders instead.
+Kind of the way [`superagent`](https://github.com/visionmedia/superagent) works:
 
 ```js
 let opts = {
@@ -164,7 +201,7 @@ let res = surf::post("/api/pet")
 Internally builders generally take `self`, and return `self` as the output so
 you can chain the methods together.
 
-4. `?` and `.await`
+### `?` and `.await`
 
 In Rust:
 - `?` is for error handling; it says: "if it's an error, return the error, if
