@@ -20,7 +20,7 @@ Before we continue, let's establish some quick terminology:
 - __Slice:__ like a ["view" into a `TypedArray` in
     JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays).
     You can't grow them, but you can create a "view of a view"
-    (slice of a slice). 
+    (slice of a slice).
 - __Traits:__ essentially the answer to the question: "what if a class could
     inherit from multiple other classes". Traits are also referred to as
     "mixins" in other languages. They don't allocate any data, but only provide
@@ -42,7 +42,7 @@ std::println!("hello world");
 // namespace
 let hashmap = std::collections::HashMap::new();
 ```
- 
+
 2. Structs don't have "constructor" methods the way JS do; instead you define a
    method that returns `Self` (which is a shorthand for the name of the struct).
 
@@ -86,7 +86,7 @@ impl Rectangle {
     }
 
     /// Get the height
-    /// 
+    ///
     /// We want to reference the value as read-only,
     /// so we use `&self` for shared access.
     pub fn height(&self) -> usize {
@@ -94,7 +94,7 @@ impl Rectangle {
     }
 
     /// Set the height
-    /// 
+    ///
     /// We want to reference the value as "writable", so we use
     /// `&mut self` for exclusive access.
     pub fn set_height(&mut self, height: usize) -> usize {
