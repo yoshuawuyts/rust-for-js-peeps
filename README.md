@@ -102,8 +102,8 @@ the box!
 
 ### Creating new projects
 
-You can create new projects using `cargo new` or `cargo init`. `init` creates a
-new directory, `new` outputs files in the current directory. It's pretty basic,
+You can create new projects using `cargo new` or `cargo init`. `new` creates a
+new directory, `init` outputs files in the current directory. It's pretty basic,
 but it's useful to get started with. If you want to write a library you can pass
 either command the `--lib` flag. By default you'll create binaries (applications
 with a `main` function that can be run).
