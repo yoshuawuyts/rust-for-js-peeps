@@ -135,12 +135,14 @@ versioned, so you can check out older documentation too. For example: you can
 find `async-std`'s docs under [docs.rs/async-std](https://docs.rs/async-std).
 
 Writing docs in Rust is by using "doc comments" (`///` instead of the regular
-`//` comments). You'll see a bunch in the rest of this guide. Important Rustdoc
-commands are:
+`//` comments). You'll see a bunch in the rest of this guide. Important
+documentation commands are:
 
 ```sh
 $ cargo doc           // generate docs
 $ cargo doc --open    // generate docs and then open them
+$ rustup doc --std    // open the stdlib docs offline
+$ rustup doc --book   // open the "Rust Programming Language" offline
 ```
 
 ### Cargo-watch
