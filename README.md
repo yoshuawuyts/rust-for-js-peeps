@@ -271,7 +271,7 @@ pub struct Rectangle {
 
 impl Rectangle {
     pub fn new(height: usize, width: usize) -> Self {
-        Self { heigh, width }
+        Self { height, width }
     }
 
     /// Get the height
