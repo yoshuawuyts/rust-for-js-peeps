@@ -201,6 +201,10 @@ Structs don't have "constructor" methods the way JS do; instead you define a
 method that returns `Self` (which is a shorthand for the name of the struct).
 
 ```js
+/// How to instantiate:
+/// ```js
+/// let rect = new Rectangle(5, 10);
+/// ```
 class Rectangle {
   constructor(height, width) {
     this.height = height;
@@ -210,6 +214,10 @@ class Rectangle {
 ```
 
 ```rust
+/// How to instantiate:
+/// ```rs
+/// let rect = Rectangle::new(5, 10);
+/// ```
 pub struct Rectangle {
     height: usize,
     width: usize,
