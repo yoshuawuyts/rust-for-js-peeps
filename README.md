@@ -65,9 +65,9 @@ rust version, `rustfmt` will also be updated.
 Important commands are:
 
 ```sh
-$ cargo fmt                   // runs rustfmt to format your code
-$ cargo fmt -- --check        // do a dry-run, outputting a diff of changes that would be made
-$ cargo fmt -- --edition=2018 // pass this flag if you're doing stuff with async/await
+$ cargo fmt                    # runs rustfmt to format your code
+$ cargo fmt -- --check         # do a dry-run, outputting a diff of changes that would be made
+$ cargo fmt -- --edition=2018  # pass this flag if you're doing stuff with async/await
 ```
 
 ### Clippy
@@ -139,10 +139,10 @@ Writing docs in Rust is by using "doc comments" (`///` instead of the regular
 documentation commands are:
 
 ```sh
-$ cargo doc           // generate docs
-$ cargo doc --open    // generate docs and then open them
-$ rustup doc --std    // open the stdlib docs offline
-$ rustup doc --book   // open the "Rust Programming Language" offline
+$ cargo doc            # generate docs
+$ cargo doc --open     # generate docs and then open them
+$ rustup doc --std     # open the stdlib docs offline
+$ rustup doc --book    # open the "Rust Programming Language" offline
 ```
 
 ### Cargo-watch
@@ -158,8 +158,8 @@ $ cargo install cargo-watch
 Important `cargo-watch` commands are:
 
 ```sh
-$ cargo watch             // Run "cargo check" on every change
-$ cargo watch -x "test"   // Run "cargo test" on every change
+$ cargo watch              # Run "cargo check" on every change
+$ cargo watch -x "test"    # Run "cargo test" on every change
 ```
 
 ## Terminology
