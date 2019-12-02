@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Quick Start - Rust for JavaScript people</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="01_introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="expanded "><a href="02_quick_start.html" class="active"><strong aria-hidden="true">2.</strong> Quick Start</a></li><li class="expanded "><a href="03_terminology.html"><strong aria-hidden="true">3.</strong> Terminology</a></li><li class="expanded "><a href="04_thinking_in_rust.html"><strong aria-hidden="true">4.</strong> Thinking in Rust</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rust for JavaScript people</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#quick-start" id="quick-start">Quick Start</a></h2>
+<p>Alright. So you want to write Rust? Step one is to get yourself a working
+environment. This means installing tools. Here's an overview of what you need
+(more or less in-order):</p>
+<h3><a class="header" href="#rustup" id="rustup">Rustup</a></h3>
+<p><a href="https://rustup.rs/">rustup</a>: this is like <code>nvm</code> for Node, but officially
+supported and really well done! It helps you install and manage Rust compiler
+versions.</p>
+<p>Installing Rustup also installs a valid compiler toolchain, which gives you 3
+new commands in total</p>
+<ul>
+<li><code>$ rustup</code>: runs &quot;rustup&quot; to manage your compiler toolchain</li>
+<li><code>$ rustc</code>: which is the Rust compiler. You'll never need to call this because of:</li>
+<li><code>$ cargo</code>: <code>cargo</code> is to Rust, what <code>npm</code> is to Node. It builds, compiles,
+installs and more. Getting to know <code>cargo</code> well is usually time well-spent!</li>
+</ul>
+<h3><a class="header" href="#cargo-edit" id="cargo-edit">Cargo-edit</a></h3>
+<p><a href="https://github.com/killercup/cargo-edit"><code>cargo-edit</code></a> provides essential
+extensions to <code>cargo</code>. In particular: it allows you to run <code>cargo add</code> which
+works somewhat similar to <code>npm install</code>.</p>
+<p>Importantly: <code>cargo install</code> works similar to <code>npm install -g</code>. And when you run
+<code>cargo add</code> only your <code>Cargo.toml</code> file (Rust's <code>package.json</code> file) is updated
+with the right versions. Run <code>cargo build</code> or <code>cargo check</code> to actually download
+and compile dependencies.</p>
+<p>You can install <code>cargo-edit</code> by running:</p>
+<pre><code class="language-sh">$ cargo install cargo-edit
+</code></pre>
+<h3><a class="header" href="#rust-fmt" id="rust-fmt">Rust fmt</a></h3>
+<p><a href="https://github.com/rust-lang/rustfmt"><code>rustfmt</code></a> is Rust's version of
+<a href="https://github.com/prettier/prettier"><code>prettier</code></a>. Everyone uses it, and even
+if the default config might take some getting used to, it's what everyone uses.</p>
+<p>It's a binary component that hooks into the compiler, so it needs to be
+installed with <code>rustup</code>:</p>
+<pre><code class="language-sh">$ rustup component add rustfmt
+</code></pre>
+<p>This should take a few seconds on a fast connection. Whenever you update your
+rust version, <code>rustfmt</code> will also be updated.</p>
+<p>Important commands are:</p>
+<pre><code class="language-sh">$ cargo fmt                   # runs rustfmt to format your code
+$ cargo fmt -- --check        # do a dry-run, outputting a diff of changes that would be made
+$ cargo fmt -- --edition=2018 # pass this flag if you're doing stuff with async/await
+</code></pre>
+<h3><a class="header" href="#clippy" id="clippy">Clippy</a></h3>
+<p><a href="https://github.com/rust-lang/rust-clippy">clippy</a> is a &quot;linting&quot; tool for Rust,
+similar to <a href="https://github.com/standard/standard"><code>standard</code></a>'s style lints.
+<code>cargo fmt</code> takes care of formatting. <code>rustc</code> takes care of correctness. But
+<code>clippy</code> is in charge of helping you write &quot;idiomatic&quot; Rust.</p>
+<p>This doesn't mean every lint in Clippy is perfect. But when you're getting
+started it can be suuuper helpful to run!</p>
+<h3><a class="header" href="#editors" id="editors">Editors</a></h3>
+<p>Rust has two language-server implementations:
+<a href="https://github.com/rust-lang/rls"><code>rls</code></a> and
+<a href="https://github.com/rust-analyzer/rust-analyzer"><code>rust-analyzer</code></a>. Try using
+<code>rust-analyzer</code> first, as it's a far superior experience. But if it doesn't work
+for your setup, it's good to be aware of (the much older, kind of unmaintained)
+<code>rls</code>.</p>
+<p>You'll have to figure out for yourself how you want to set this up. But if
+you're undecided, I've heard VSCode is generally straight forward.</p>
+<h3><a class="header" href="#testing" id="testing">Testing</a></h3>
+<p>Cargo ships with a <code>cargo test</code> command, which will run both doctests and files
+under <code>test/</code>. The Rust book has <a href="https://doc.rust-lang.org/1.30.0/book/second-edition/ch11-00-testing.html">a whole chapter dedicated to
+testing</a>
+you should read on this. But it's good to know this is provided for you out of
+the box!</p>
+<h3><a class="header" href="#creating-new-projects" id="creating-new-projects">Creating new projects</a></h3>
+<p>You can create new projects using <code>cargo new</code> or <code>cargo init</code>. <code>new</code> creates a
+new directory, <code>init</code> outputs files in the current directory. It's pretty basic,
+but it's useful to get started with. If you want to write a library you can pass
+either command the <code>--lib</code> flag. By default you'll create binaries (applications
+with a <code>main</code> function that can be run).</p>
+<p>There's also the newer
+<a href="https://github.com/ashleygwilliams/cargo-generate"><code>cargo-generate</code></a> project.
+This is a more powerful version of the built-in <code>cargo</code> commands, and allows you
+to pick from templates. You may not need this if you're just messing around, but
+it's probably good to be aware of.</p>
+<h3><a class="header" href="#publishing" id="publishing">Publishing</a></h3>
+<p><code>cargo publish</code> works like <code>npm publish</code>. The central repository is called
+<a href="https://crates.io">crates.io</a> and is very similar to NPM. Importantly it's not
+owned by a scummy for-profit company, but is instead part of the Rust project.</p>
+<p>If you've built something nice in Rust, consider going ahead and publishing it
+to Crates.io. All that's needed is a GitHub account to sign up, and you're good
+to go!</p>
+<h3><a class="header" href="#documentation" id="documentation">Documentation</a></h3>
+<p>Most docs in JS seem to either be written in a README.md, or as part of some
+special website. In Rust documentation is generated automatically using <code>rustdoc</code>.</p>
+<p>You can run <code>rustdoc</code> through <code>$ cargo doc</code>. Every package on crates.io also has
+documentation generated for you on <a href="https://docs.rs">docs.rs</a>. It's even
+versioned, so you can check out older documentation too. For example: you can
+find <code>async-std</code>'s docs under <a href="https://docs.rs/async-std">docs.rs/async-std</a>.</p>
+<p>Writing docs in Rust is by using &quot;doc comments&quot; (<code>///</code> instead of the regular
+<code>//</code> comments). You'll see a bunch in the rest of this guide. Important
+documentation commands are:</p>
+<pre><code class="language-sh">$ cargo doc           # generate docs
+$ cargo doc --open    # generate docs and then open them
+$ rustup doc --std    # open the stdlib docs offline
+$ rustup doc --book   # open the &quot;Rust Programming Language&quot; offline
+</code></pre>
+<h3><a class="header" href="#cargo-watch" id="cargo-watch">Cargo-watch</a></h3>
+<p>It can sometimes be tedious to run <code>cargo check</code> after every change. Which is
+why <a href="https://github.com/passcod/cargo-watch"><code>cargo-watch</code></a> exists. You can
+install it by running:</p>
+<pre><code class="language-sh">$ cargo install cargo-watch
+</code></pre>
+<p>Important <code>cargo-watch</code> commands are:</p>
+<pre><code class="language-sh">$ cargo watch             # Run &quot;cargo check&quot; on every change
+$ cargo watch -x &quot;test&quot;   # Run &quot;cargo test&quot; on every change
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="01_introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="03_terminology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="01_introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="03_terminology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

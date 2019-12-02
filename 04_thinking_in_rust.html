@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Thinking in Rust - Rust for JavaScript people</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="01_introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="expanded "><a href="02_quick_start.html"><strong aria-hidden="true">2.</strong> Quick Start</a></li><li class="expanded "><a href="03_terminology.html"><strong aria-hidden="true">3.</strong> Terminology</a></li><li class="expanded "><a href="04_thinking_in_rust.html" class="active"><strong aria-hidden="true">4.</strong> Thinking in Rust</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rust for JavaScript people</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#thinking-in-rust" id="thinking-in-rust">Thinking in Rust</a></h2>
+<p>Aside of the obvious type system stuff, I think there are a few core differences
+between Rust and JS:</p>
+<h3><a class="header" href="#object-oriented-everything" id="object-oriented-everything">Object-Oriented everything</a></h3>
+<p>In Rust <em>everything</em> is object-oriented. Imports are always done through
+namespaces, and namespaces kind of behave like structs.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>// println comes from the &quot;std&quot; namespace -- print something to the screen.
+std::println!(&quot;hello world&quot;);
+
+// Call the &quot;new&quot; method from the `HashMap` type from the `std::collections`
+// namespace
+let hashmap = std::collections::HashMap::new();
+<span class="boring">}
+</span></code></pre></pre>
+<h3><a class="header" href="#classes--structs" id="classes--structs">Classes &amp; Structs</a></h3>
+<p>Structs don't have &quot;constructor&quot; methods the way JS do; instead you define a
+method that returns <code>Self</code> (which is a shorthand for the name of the struct).</p>
+<pre><code class="language-js">/// How to instantiate:
+/// ```js
+/// let rect = new Rectangle(5, 10);
+/// ```
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+</code></pre>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>/// How to instantiate:
+/// ```rs
+/// let rect = Rectangle::new(5, 10);
+/// ```
+pub struct Rectangle {
+    height: usize,
+    width: usize,
+}
+
+impl Rectangle {
+    /// Create a new instance.
+    pub fn new(height: usize, width: usize) -&gt; Self {
+        Self { height, width }
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h3><a class="header" href="#expressions" id="expressions">Expressions!</a></h3>
+<p>Everything is an expression. Which is to say: blocks suddenly have a lot more
+meaning, and you can do some fun substitutions.</p>
+<p>These are all equivalent:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>let y = 1 + 1;
+let x = y * y;
+if x == 4 {
+    println!(&quot;hello world&quot;);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>// If we omit the `;` from a statement, it becomes the return value of the
+// block it's in.
+let x = {
+    let y = 1 + 1;
+    y * y
+};
+if x == 4 {
+    println!(&quot;hello world&quot;);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>// Expressions means that you can inline almost anything. Don't actually do this
+// please.
+if {
+    let y = 1 + 1;
+    y * y
+} == 4 {
+    println!(&quot;hello world&quot;);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h3><a class="header" href="#know-your-self" id="know-your-self">Know your <code>self</code></a></h3>
+<p>There are 3 kinds of self: <code>self</code>, <code>&amp;self</code>, <code>&amp;mut self</code>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>pub struct Rectangle {
+    height: usize,
+    width: usize,
+}
+
+impl Rectangle {
+    pub fn new(height: usize, width: usize) -&gt; Self {
+        Self { height, width }
+    }
+
+    /// Get the height
+    ///
+    /// We want to reference the value as read-only,
+    /// so we use `&amp;self` for shared access.
+    pub fn height(&amp;self) -&gt; usize {
+        self.height
+    }
+
+    /// Set the height
+    ///
+    /// We want to reference the value as &quot;writable&quot;, so we use
+    /// `&amp;mut self` for exclusive access.
+    pub fn set_height(&amp;mut self, height: usize) -&gt; usize {
+        self.height = height
+    }
+
+    /// Get the height + width as a tuple.
+    ///
+    /// We want to &quot;consume&quot; the current struct, and return its internal parts.
+    /// So instead of taking a reference, we take an owned value `self` after
+    /// which the struct can no longer be used, and return a tuple (anonymous
+    /// struct) containing its internals.
+    pub fn parts(self) -&gt; (usize, usize) {
+        (self.height, self.width)
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>This is the core of everything around the borrow checker. If you have exclusive
+access to a variable, nobody else can have access to that variable too and you
+can mutate it. If you have shared access to a variable, others may too, but
+you're not allowed to update the value. That's how data races are prevented!</p>
+<p>There's some escape hatches using <code>RefCell</code>, <code>Mutex</code> and other things to get
+around this; but they apply clever tricks internally to uphold the same
+guarantees at runtime rather than compile-time. Less efficient, but same rules!</p>
+<p>That's it! Everything else is basically an application of these rules.</p>
+<h3><a class="header" href="#options" id="options">Options</a></h3>
+<p>Instead of using <code>opts</code> or default values, most things use builders instead.
+Kind of the way <a href="https://github.com/visionmedia/superagent"><code>superagent</code></a> works:</p>
+<pre><code class="language-js">let opts = {
+  method: 'GET',
+  headers: {
+    'X-API-Key': 'foobar',
+    'accept': 'json'
+  }
+};
+
+try {
+  let res = await fetch('/api/pet', opts);
+} catch(err) {
+  throw err
+}
+</code></pre>
+<pre><code class="language-js">superagent.post('/api/pet')
+  .set('X-API-Key', 'foobar')
+  .set('accept', 'json')
+  .end((err, res) =&gt; {
+    // Calling the end function will send the request
+  });
+
+</code></pre>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>let res = surf::post(&quot;/api/pet&quot;)
+    .set_header(&quot;X-API-Key&quot;, &quot;foobar&quot;)
+    .set_header(&quot;accept&quot;, &quot;json&quot;)
+    .await?; // Calling .await will send the request
+<span class="boring">}
+</span></code></pre></pre>
+<p>Internally builders generally take <code>self</code>, and return <code>self</code> as the output so
+you can chain the methods together.</p>
+<h3><a class="header" href="#-and-await" id="-and-await"><code>?</code> and <code>.await</code></a></h3>
+<p>In Rust:</p>
+<ul>
+<li><code>?</code> is for error handling; it says: &quot;if it's an error, return the error, if
+it's not an error, return the value&quot;.</li>
+<li><code>.await</code> is like <code>await</code> but you can chain it just like any other property.</li>
+</ul>
+<p>Speaking of <code>.await</code> though. Do yourself a big favor and start with
+<em>synchronous</em> Rust first. Starting with async Rust is going full throttle on
+hard mode, and I can guarantee it's going to be confusing.</p>
+<p>Start easy. Do synchronous Rust for a bit. Skip HTTP. Don't do timeouts. Try,
+uhh, other things first. Loops, and printing stuff to the console. Maybe even
+borrowing if you're feeling cheeky.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="03_terminology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="03_terminology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
