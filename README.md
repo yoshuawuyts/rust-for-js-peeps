@@ -1,7 +1,6 @@
-# Rust for JavaScript peeps
+# Rust for JavaScript People
 
-This is currently in the process of being ported to mdbook. Links should be up
-soon!
+[rustjs.yoshuawuyts.com](http://rustjs.yoshuawuyts.com)
 
 ## License
 [MIT](./LICENSE-MIT) OR [Apache-2.0](./LICENSE-APACHE)
