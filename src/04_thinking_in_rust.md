@@ -3,8 +3,8 @@
 Aside of the obvious type system stuff, I think there are a few core differences
 between Rust and JS:
 
-### Object-Oriented everything
-In Rust *everything* is object-oriented. Imports are always done through
+### Namespaces
+In Rust, imports are always done through
 namespaces, and namespaces kind of behave like structs.
 
 ```rust
