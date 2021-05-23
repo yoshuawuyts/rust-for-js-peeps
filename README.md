@@ -82,23 +82,36 @@ started it can be suuuper helpful to run!
 
 ### Editors
 
-Rust has two language-server implementations:
-[`rls`](https://github.com/rust-lang/rls) and
-[`rust-analyzer`](https://github.com/rust-analyzer/rust-analyzer). Try using
-`rust-analyzer` first, as it's a far superior experience. But if it doesn't work
-for your setup, it's good to be aware of (the much older, kind of unmaintained)
-`rls`.
-
-You'll have to figure out for yourself how you want to set this up. But if
-you're undecided, I've heard VSCode is generally straight forward.
+Rust has a [language-server](https://langserver.org/) implementation in the form of
+[`rust-analyzer`](https://github.com/rust-analyzer/rust-analyzer). This provides
+IDE support for just about any editor. If you're not sure which editor to start with:
+consider using VSCode! - It has really good integration with language servers, and should
+make it easy to get started writing Rust.
 
 ### Testing
 
 Cargo ships with a `cargo test` command, which will run both doctests and files
 under `test/`. The Rust book has [a whole chapter dedicated to
 testing](https://doc.rust-lang.org/1.30.0/book/second-edition/ch11-00-testing.html)
-you should read on this. But it's good to know this is provided for you out of
-the box!
+you should read on this. But to get you started, you can copy this boilerplate into
+any file into your `src/` directory, and `cargo test` will pick it up:
+
+
+```rust
+#[cfg(test)]
+mod test {
+    use super::*;
+    #[test]
+    fn smoke_test() {
+        assert_eq!(1, 1);
+    }
+}
+```
+
+This creates a module within your file which only compiles when `cargo test` is
+run. It imports all functions and types from the outer scope to the `mod test`
+scope, and then defines a single test `smoke_test` which is executed. You can
+add more test by writing more `#[test]` functions.
 
 ### Creating new projects
 
@@ -351,6 +364,8 @@ superagent.post('/api/pet')
 
 ```
 
+We can do the same in Rust. Here is an example using the
+[`surf`](https://docs.rs/surf) HTTP client:
 ```rust
 let res = surf::post("/api/pet")
     .set_header("X-API-Key", "foobar")
