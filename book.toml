@@ -1,6 +1,0 @@
-[book]
-authors = ["Yoshua Wuyts"]
-language = "en"
-multilingual = false
-src = "src"
-title = "Rust for JavaScript people"
