@@ -630,10 +630,6 @@ bindings for us. The [`async-std`](https://docs.rs/async-std/1.9.0/async_std/)
 library was designed as a drop-in asynchronous replacement for the stdlib (I'm a
 co-author), so let's use that for our example:
 
-```sh
-$ cargo add async-std
-```
-
 ```rust
 use async_std::fs;
 
