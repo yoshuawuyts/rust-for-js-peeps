@@ -12,18 +12,19 @@ described as: "A systems programming language", or "A modern alternative to
 C++". And while I don't think those descriptions are wrong, I don't think they
 tell the full story either.
 
-Instead the way I think about Rust is as a language with a wide range of
-applications. Maybe the widest of any mainstream language currently in use. At the
-highest level we can define functions and methods, and link them together with external packages to create fast and maintainable programs.
-But at the lowest level we can precisely manipulate memory layout,
-call into kernel APIs, and even write inline assembly. These are things which
-in JavaScript you'd need to write [native extensions using
-C++](https://nodejs.org/docs/latest-v15.x/api/n-api.html) for.
+The way I think about Rust is as a language with a wide range of applications.
+On the one end we have a language with a package manager, which makes it
+convenient to write web applications, create data processing pipelines, and create
+user interfaces.  But on the other end we have a language that can precisely
+manipulate memory layout, call into kernel APIs, and even write inline
+assembly — the things for which in JavaScript you'd need to write [native C++
+extensions](https://nodejs.org/docs/latest-v15.x/api/n-api.html).
 
 In this guide we'll be focusing on the bits which are most similar to
-JavaScript: writing classes, functions, and control flow. Starting at the start.
-And the hope is that once you're comfortable with that, you can dive deeper and
-gradually learn more.
+JavaScript: writing classes, functions, and control flow. The idea is that if
+we can get you to a spot where you're comfortable, you can use that as a
+starting point to dive deeper into Rust, and gradually learn more about what the
+language has to offer.
 
 ## Quick Start
 
