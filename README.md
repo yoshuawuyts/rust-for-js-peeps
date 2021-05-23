@@ -17,7 +17,7 @@ Alright. So you want to write Rust? Step one is to get yourself a working
 environment. This means installing tools. Here's an overview of what you need
 (more or less in-order):
 
-## Rustup
+## Installing Rust
 [rustup](https://rustup.rs/): this is like `nvm` for Node, but officially
 supported and really well done! It helps you install and manage Rust compiler
 versions.
@@ -30,13 +30,13 @@ new commands in total
 - `$ cargo`: `cargo` is to Rust, what `npm` is to Node. It builds, compiles,
   installs and more. Getting to know `cargo` well is usually time well-spent!
 
-## Cargo-edit
+## Installing packages
 
 [`cargo-edit`](https://github.com/killercup/cargo-edit) provides essential
 extensions to `cargo`. In particular: it allows you to run `cargo add` which
-works somewhat similar to `npm install`.
+works similar to `npm install`. In rust-lingo, "packages" are called "crates".
 
-Importantly: `cargo install` works similar to `npm install -g`. And when you run
+`cargo install` works similar to `npm install -g`. And when you run
 `cargo add` only your `Cargo.toml` file (Rust's `package.json` file) is updated
 with the right versions. Run `cargo build` or `cargo check` to actually download
 and compile dependencies.
@@ -46,7 +46,7 @@ You can install `cargo-edit` by running:
 $ cargo install cargo-edit
 ```
 
-## Rust fmt
+## Formatting code
 
 [`rustfmt`](https://github.com/rust-lang/rustfmt) is Rust's version of
 [`prettier`](https://github.com/prettier/prettier). Everyone uses it, and even
@@ -70,7 +70,7 @@ $ cargo fmt -- --check         # do a dry-run, outputting a diff of changes that
 $ cargo fmt -- --edition=2018  # pass this flag if you're doing stuff with async/await
 ```
 
-## Clippy
+## linting code
 
 [clippy](https://github.com/rust-lang/rust-clippy) is a "linting" tool for Rust,
 similar to [`standard`](https://github.com/standard/standard)'s style lints.
@@ -80,7 +80,7 @@ similar to [`standard`](https://github.com/standard/standard)'s style lints.
 This doesn't mean every lint in Clippy is perfect. But when you're getting
 started it can be suuuper helpful to run!
 
-## Editors
+## Editors and IDE support
 
 Rust has a [language-server](https://langserver.org/) implementation in the form of
 [`rust-analyzer`](https://github.com/rust-analyzer/rust-analyzer). This provides
@@ -158,7 +158,7 @@ $ rustup doc --std     # open the stdlib docs offline
 $ rustup doc --book    # open the "Rust Programming Language" offline
 ```
 
-## Cargo-watch
+## watching projects
 
 It can sometimes be tedious to run `cargo check` after every change. Which is
 why [`cargo-watch`](https://github.com/passcod/cargo-watch) exists. You can
