@@ -682,7 +682,7 @@ let opts = {
   method: 'GET',
   headers: {
     'X-API-Key': 'foobar',
-    'accept': 'json'
+    'Accept': 'application/json'
   }
 };
 
@@ -695,8 +695,8 @@ try {
 
 ```js
 superagent.post('/api/pet')
-  .set('X-API-Key', 'foobar')
-  .set('accept', 'json')
+  .set('X-API-Key', '<secret>')
+  .set('Accept', 'application/json')
   .end((err, res) => {
     // Calling the end function will send the request
   });
@@ -707,8 +707,8 @@ We can do the same in Rust. Here is an example using the
 [`surf`](https://docs.rs/surf) HTTP client:
 ```rust
 let res = surf::post("/api/pet")
-    .set_header("X-API-Key", "foobar")
-    .set_header("accept", "json")
+    .header("X-API-Key", "<secret>")
+    .header("Accept", "application/json")
     .await?; // Calling .await will send the request
 ```
 
