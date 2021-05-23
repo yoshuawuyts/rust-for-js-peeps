@@ -197,6 +197,7 @@ Aside of the obvious type system stuff, I think there are a few core differences
 between Rust and JS:
 
 ### Object-Oriented everything
+
 In Rust *everything* is object-oriented. Imports are always done through
 namespaces, and namespaces kind of behave like structs.
 
@@ -210,6 +211,7 @@ let hashmap = std::collections::HashMap::new();
 ```
 
 ### Classes & Structs
+
 Structs don't have "constructor" methods the way JS do; instead you define a
 method that returns `Self` (which is a shorthand for the name of the struct).
 
@@ -334,7 +336,47 @@ guarantees at runtime rather than compile-time. Less efficient, but same rules!
 
 That's it! Everything else is basically an application of these rules.
 
-### Options
+### Handling null values
+
+In JavaScript you can use `null` to show that a value hasn't been initialized
+yet. Rust doesn't have `null`, instead you need to manually mark values which
+can be uninitialized by using the `Option` type. This is generally how you do it
+in JavaScript:
+
+```js
+let cat = {
+    name: "chashu",
+    favorite_food: null // we can initialize a key as "null"
+}
+cat.favorite_food = "tuna"; // ... and then later assign values to them.
+```
+
+In Rust we need to go through the `Option` type for this.
+
+```rust
+// Define our the shape of our type.
+struct Cat {
+    name: String,
+    favorite_food: Option<String>,
+}
+
+// Create a new instance of our type. Note that it needs to be mutable
+// so we can change values on it later. 
+let mut cat = Cat {
+    name: "Chashu".to_string(),
+    favorite_food: None // this is short for `Option::None`
+};
+
+// ... and then we assign a value here.
+cat.favorite_food = Some("tuna".to_string()); // this is short for `Option::Some`
+```
+
+This is our first look at _enums_: types which encapsulate a piece of state. Here
+we see the enum `Option`, which can either be `None` to mark no value has been
+set, or `Some` which contains an inner value.
+
+### Passing configuration and options
+
 Instead of using `opts` or default values, most things use builders instead.
 Kind of the way [`superagent`](https://github.com/visionmedia/superagent) works:
 
