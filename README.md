@@ -375,6 +375,77 @@ This is our first look at _enums_: types which encapsulate a piece of state. Her
 we see the enum `Option`, which can either be `None` to mark no value has been
 set, or `Some` which contains an inner value.
 
+### Switch cases and if/else blocks
+
+Rust not only has `if/else` for control flow, it also has a concept of `match`. This is somewhat similar to JavaScript's `switch` statement. Let's translate some JavaScript control flow to Rust:
+
+```js
+let num = 1
+switch (num) {
+    case 0:
+        break; // handle case 0
+    case 1:
+        break; // handle case 1
+    default:
+        throw new Error('oops')
+}
+```
+
+And converting this to Rust we could write it as:
+
+```rust
+let num = 1;
+match num {
+    0 => todo!("handle case 0"),
+    1 => todo!("handle case 1"),
+    _ => panic!("oops"),
+}
+```
+
+This creates a case for `0`, for `1`, and provides a fallback case for all other
+numbers. If we didn't add the fallback case the compiler would not let us compile!
+
+Match blocks are useful to quickly match on patterns. We can compare numbers to
+other numbers, but also strings with each other, and importantly: compare enum
+variants. Say we wanted to check whether the `Option` we defined earlier was a
+`Some` variant, or a `None` variant we could write it like this:
+
+```rust
+struct Cat {
+    name: String,
+    favorite_food: Option<String>,
+}
+
+fn has_favorite_food(cat: Cat) -> bool {
+    match cat.favorite_food {
+        Some(_) => true, // return `true` if our cat has a favorite food
+        None => false,   // return `false` if no favorite food has been provided
+    }
+}
+```
+
+This looks whether our `Option` is `Some` or `None`, and returns a different
+bool depending on the case. We're not using the `return` keyword for this
+because `match` statements are expressions too, so simply by omitting the
+semicolon the booleans becomes the return values for our function.
+
+Say we wanted to do something with the string within `Some`, we could give it a
+variable name. We could for example print different messages depending on the
+inner value.
+
+```rust
+match cat.favorite_food {
+    Some(s) => println!("our favorite food is: {}", s),
+    None => println!("we have no favorite food yet :("),
+}
+```
+
+`match` statements are really common in Rust (more common than `switch`
+statements in JavaScript), so it's worth playing around with them to see what
+you can do. Can you make a match statement work for different string values?
+What about defining enums? What if an enum contains another enum, can you match
+on that?
+
 ### Passing configuration and options
 
 Instead of using `opts` or default values, most things use builders instead.
