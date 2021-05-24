@@ -1,4 +1,5 @@
 # Rust for JavaScript peeps
+
 Rust for JavaScript peeps
 
 ## Introduction
@@ -33,6 +34,7 @@ environment. This means installing tools. Here's an overview of what you need
 (more or less in-order):
 
 ## Installing Rust
+
 [rustup](https://rustup.rs/): this is like `nvm` for Node, but officially
 supported and really well done! It helps you install and manage Rust compiler
 versions.
@@ -57,6 +59,7 @@ with the right versions. Run `cargo build` or `cargo check` to actually download
 and compile dependencies.
 
 You can install `cargo-edit` by running:
+
 ```sh
 $ cargo install cargo-edit
 ```
@@ -110,7 +113,6 @@ under `test/`. The Rust book has [a whole chapter dedicated to
 testing](https://doc.rust-lang.org/1.30.0/book/second-edition/ch11-00-testing.html)
 you should read on this. But to get you started, you can copy this boilerplate into
 any file into your `src/` directory, and `cargo test` will pick it up:
-
 
 ```rust
 #[cfg(test)]
@@ -262,10 +264,12 @@ impl Rectangle {
 ```
 
 ## Expressions!
+
 Everything is an expression. Which is to say: blocks suddenly have a lot more
 meaning, and you can do some fun substitutions.
 
 These are all equivalent:
+
 ```rust
 let y = 1 + 1;
 let x = y * y;
@@ -286,7 +290,6 @@ if x == 4 {
 }
 ```
 
-
 ```rust
 // Expressions means that you can inline almost anything. Don't actually do this
 // please.
@@ -299,6 +302,7 @@ if {
 ```
 
 ## Know your `self`
+
 There are 3 kinds of self: `self`, `&self`, `&mut self`.
 
 ```rust
@@ -706,6 +710,7 @@ superagent.post('/api/pet')
 
 We can do the same in Rust. Here is an example using the
 [`surf`](https://docs.rs/surf) HTTP client:
+
 ```rust
 let res = surf::post("/api/pet")
     .header("X-API-Key", "<secret>")
@@ -713,13 +718,14 @@ let res = surf::post("/api/pet")
     .await?; // Calling .await will send the request
 ```
 
-Internally builders generally take `self`, and return `self` as the output so
+Internally builders generally take `self` and return `self` as the output so
 you can chain the methods together.
 
 ## Outro
 
-Hopefully this is somewhat useful for JS peeps looking at Rust. There's a lot
-more that should be written here, but hopefully this is somewhat helpful!
+Hopefully, this is somewhat useful for JS peeps looking at Rust. There's a lot
+more that should be written here, but hopefully, this is somewhat helpful!
 
 ## License
+
 [MIT](./LICENSE-MIT) OR [Apache-2.0](./LICENSE-APACHE)
