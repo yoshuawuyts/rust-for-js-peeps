@@ -155,9 +155,6 @@ let hashmap = std::collections::HashMap::new();
 
 ## 类与结构
 
-Structs don't have "constructor" methods the way JS do; instead you define a
-method that returns `Self` (which is a shorthand for the name of the struct).
-
 结构没有像 JS 那样的 “constructor” 方法；相反，您定义了一个返回 `Self`（这是结构名称的简写）的方法。
 
 ````js
@@ -368,12 +365,6 @@ match cat.favorite_food {
 
 ## 状态机（枚举）
 
-What we saw with Rust's `Option` is that we can have two variants: `Some` and
-`None`. This is kind of like a small state machine. Probably the simplest example
-of a state machine in Rust is if we write our own version for `bool`. We know
-this can be in one of two states: `true` and `false`. We could write it as an enum
-like so:
-
 我们从 Rust 的 `Option` 中看到的是，我们可以有两个变体：`Some` 和 `None`。这有点像一个小型的状态机。Rust 中状态机最简单的例子可能是为 `bool` 编写自己的版本。我们知道这可以是两种状态之一：`true` 和 `false` 。我们可以将其编写为枚举，如下所示：
 
 ```rust
@@ -421,8 +412,6 @@ try {
   console.error(e); // 处理错误
 }
 ```
-
-And translating this to Rust we can write it using [`fs::read_to_string`](https://doc.rust-lang.org/std/fs/fn.read_to_string.html):
 
 并将其转换为 Rust，我们可以使用 [`fs::read_to_string`](https://doc.rust-lang.org/std/fs/fn.read_to_string.html) 编写它：
 
@@ -533,8 +522,7 @@ async fn main() {
 在内部 JavaScript 的 `async/await` ，以及 Rust 的 `async/.await` 的实现相当类似：JavaScript 的 `async` 将 “Promises” 和 “generators” 绑定到一起。
 Rust 的 `async` 设计了 “Futures” 和 “generators” 。不过，这两个系统之间的主要区别在于 JavaScript 的 “Promises” 在创建时就开始执行，而 Rust 的 Futures 仅在它们被 `.await` 调用时才开始执行。
 
-从这个意义上讲，Rust 的 `Future` 更类似于[JavaScript]
-“thenable”](https://masteringjs.io/tutorials/fundamentals/thenable)。而JavaScript 的 Promise 更类似于 Rust 的 [Task](https://docs.rs/async-std/1.9.0/async_std/task/index.html#the-task-model）。
+从这个意义上讲，Rust 的 `Future` 更类似于 [JavaScript “thenable”](https://masteringjs.io/tutorials/fundamentals/thenable) 。而 JavaScript 的 Promise 更类似于 Rust 的 [Task](https://docs.rs/async-std/1.9.0/async_std/task/index.html#the-task-model) 。
 
 ## 传递配置和选项
 
@@ -542,7 +530,7 @@ Instead of using `opts` or default values, most things use builders instead.
 Kind of the way [`superagent`](https://github.com/visionmedia/superagent) works:
 
 大多数东西都使用构建器，而不是使用 `opts` 或默认值。
-['superagent`](https://github.com/visionmedia/superagent)的一种工作方式：
+[superagent](https://github.com/visionmedia/superagent) 的一种工作方式：
 
 ```js
 let opts = {
