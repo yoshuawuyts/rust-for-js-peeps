@@ -1,6 +1,19 @@
-# Rust for JavaScript peeps
+<h1 align="center">Rust for JavaScript peeps</h1>
 
-Rust for JavaScript peeps
+<div align="center">
+ <strong>
+   Rust for JavaScript peeps
+ </strong>
+</div>
+
+<div align="center">
+  <h3>
+    Translations:
+    <a href="https://github.com/yoshuawuyts/rust-for-js-peeps/tree/master/zh-CN">
+      Chinese
+    </a>
+  </h3>
+</div>
 
 ## Introduction
 
