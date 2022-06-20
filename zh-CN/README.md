@@ -66,7 +66,7 @@ $ cargo fmt -- --edition=2018  # 传递这个标志，如果你正在用 async/a
 
 ## 编辑器和 IDE 支持
 
-Rust 有一个 [language-server](https://langserver.org/) 实现，形式为 [`rust-analyzer`](https://github.com/rust-analyzer/rust-analyzer)。 这为几乎所有编辑器提供了 IDE 支持。这为几乎所有编辑器提供了 IDE 支持。如果您不确定从哪个编辑器开始：考虑使用 VSCode！- 它与语言服务器的集成非常好，应该可以轻松开始编写 Rust。
+Rust 有一个 [language-server](https://langserver.org/) 实现，形式为 [`rust-analyzer`](https://github.com/rust-analyzer/rust-analyzer)。 这为几乎所有编辑器提供了 IDE 支持。如果您不确定从哪个编辑器开始：考虑使用 VSCode！- 它与语言服务器的集成非常好，应该可以轻松开始编写 Rust。
 
 ## 测试
 
